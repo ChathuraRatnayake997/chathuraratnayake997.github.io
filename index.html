@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chathura Ratnayake | Portfolio</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+        :root {
+            --bg: #0d1117; --text-primary: #c9d1d9; --text-secondary: #fff; --accent: #58a6ff; --border: #30363d; --wrapper-bg: rgba(13, 17, 23, 0.85); --node-bg: rgba(33, 38, 45, 0.7); --tag-bg: rgba(88, 166, 255, 0.1);
+        }
+        body.light-mode {
+            --bg: #f0f2f5; --text-primary: #212529; --text-secondary: #000; --accent: #007bff; --border: #dee2e6; --wrapper-bg: rgba(255, 255, 255, 0.8); --node-bg: rgba(255, 255, 255, 0.7); --tag-bg: rgba(0, 123, 255, 0.1);
+        }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Poppins', sans-serif; background-color: var(--bg); color: var(--text-primary); margin: 0; padding: 0; overflow-x: hidden; transition: background-color 0.3s, color 0.3s; }
+        #particle-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
+        .content-wrapper { position: relative; z-index: 1; max-width: 900px; margin: 4rem auto; padding: 2rem; background: var(--wrapper-bg); border: 1px solid var(--border); border-radius: 10px; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); transition: background-color 0.3s, border-color 0.3s; }
+        .main-nav { display: flex; justify-content: flex-end; align-items: center; gap: 1.5rem; margin-bottom: 2rem; }
+        .main-nav a { font-weight: 400; font-size: 1rem; color: var(--text-primary); transition: color 0.3s; text-decoration: none; }
+        .main-nav a:hover, .main-nav a.active { color: var(--accent); }
+        #theme-toggle { background: none; border: none; color: var(--text-primary); cursor: pointer; font-size: 1.5rem; padding: 0; line-height: 1; transition: transform 0.3s, color 0.3s; }
+        #theme-toggle:hover { color: var(--accent); transform: rotate(15deg); }
+        header.title-header { text-align: center; margin-bottom: 3rem; }
+        header.title-header h1 { font-size: 3rem; color: var(--text-secondary); margin: 0; text-shadow: 0 0 10px var(--accent); transition: color 0.3s, text-shadow 0.3s; }
+        body.light-mode header.title-header h1 { text-shadow: none; }
+        header.title-header p { font-size: 1.2rem; color: var(--accent); transition: color 0.3s; }
+        .section { margin-bottom: 3rem; }
+        .section-title { font-size: 1.8rem; color: var(--text-secondary); border-bottom: 1px solid var(--accent); padding-bottom: 0.5rem; margin-bottom: 1.5rem; transition: color 0.3s, border-color 0.3s; }
+        
+        /* --- THIS IS THE KEY CHANGE --- */
+        .bio-container {
+            display: flex;
+            gap: 2rem;
+            align-items: flex-start;
+            flex-direction: row-reverse; /* This moves the image to the right */
+        }
+        .bio-image { flex-shrink: 0; width: 150px; height: 150px; border-radius: 8px; border: 1px solid var(--border); overflow: hidden; }
+        .bio-image img { width: 100%; height: 100%; object-fit: cover; }
+
+        .node-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
+        .node { background: var(--node-bg); border: 1px solid var(--border); padding: 1.5rem; border-radius: 8px; display: flex; flex-direction: column; transition: all 0.3s ease; height: 280px; }
+        .node:hover { transform: translateY(-5px); border-color: var(--accent); box-shadow: 0 0 15px rgba(88, 166, 255, 0.2); }
+        body.light-mode .node:hover { box-shadow: 0 0 15px rgba(0, 123, 255, 0.2); }
+        .node h3 { margin: 0 0 0.5rem 0; color: var(--accent); transition: color 0.3s; }
+        .node p { margin: 0; flex-grow: 1; font-weight: 300; }
+        .project-tags { margin-top: 1rem; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+        .project-tags span { background: var(--tag-bg); border: 1px solid var(--border); padding: 0.25rem 0.75rem; border-radius: 15px; font-size: 0.8rem; font-weight: 400; transition: background-color 0.3s, border-color 0.3s; }
+        a { color: var(--accent); text-decoration: none; font-weight: 600; }
+        a:hover { text-decoration: underline; }
+        /* Override link styling for project cards to match other projects */
+        .node-grid a { color: inherit; text-decoration: none; font-weight: inherit; }
+        
+        @media (max-width: 600px) {
+            .bio-container {
+                flex-direction: column; /* On mobile, it stacks vertically */
+                align-items: center;
+            }
+            .bio-text { text-align: center; }
+            .bio-image { margin-bottom: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <canvas id="particle-canvas"></canvas>
+    <div class="content-wrapper">
+        <nav class="main-nav">
+            <a href="#bio" class="active">About</a>
+            <a href="#projects">Projects</a>
+            <a href="publications.html">Publications</a>
+            <a href="#contact">Connect</a>
+            <button id="theme-toggle" title="Toggle Theme">&#9789;</button>
+        </nav>
+        <header class="title-header">
+            <h1>Chathura Ratnayake</h1>
+            <p>M.Eng Student @ Zhejiang University</p>
+        </header>
+        <main>
+            <section class="section" id="bio">
+                <h2 class="section-title">Bio</h2>
+                <div class="bio-container">
+                    <div class="bio-image">
+                        <!-- IMPORTANT: Replace this with the path to your square photo -->
+                        <img src="img/pp.jpg" alt="Professional headshot of Chathura">
+                    </div>
+                    <div class="bio-text">
+                        <p>My name is Chathura, and I am a final-year professional master's student at Zhejiang University. My final project focuses on leveraging AI to enhance STEM education. I completed my BEng in Chemical Engineering and Technology at Tiangong University, where I received a University Scholarship in 2022.</p>
+                        <p>My academic journey was truly tested when the COVID-19 pandemic forced me to shift from an international campus to online classes from my home in Sri Lanka in 2020. Determined to supplement my virtual education with real-world experience, I joined the Joint Research and Demonstration Center for Water Technology (JRDC) as a volunteer Engineering Intern. I was later promoted to a Research Assistant and also worked as a Temporary Laboratory Instructor for the Non-Volatile Organic lab. There, I operated an HPLC instrument and a CHN analyzer, and assisted in operating an LCMS system.</p>
+                        <p>My engagement with water research assisted our team to optimize an HPLC method for pesticides and study the importance of biofilm characterization in drinking water networks. This work resulted in a co-authored abstract for a conference and a special workshop program.</p>
+                        <p>Working with these sophisticated instruments inspired me to learn coding to better understand the processes behind their graphical user interfaces. Interestingly, I was also inspired to pursue data analysis by the movie Moneyball, which is about baseball—my favorite sport. I was fortunate to represent my country as a teen national team player, competing in baseball championships in the United States twice.</p>
+                        <p>The direction for my recent master's project was inspired by my role as a Temporary Lab Demonstrator. This experience ignited my interest in not just practicing science, but in revolutionizing how it's taught. I am currently developing another tool to learn math interactively, which you can find in my projects.</p>
+                    </div>
+                </div>
+            </section>
+            <section class="section" id="projects">
+                <h2 class="section-title">Projects</h2>
+                <div class="bio-text">
+                        <p>I have bit of experience with analytical instruments, data analysis and water. Recently I started learning Large Language Models, AI, Machine Learning and RAG to explore how those technologies can be helpful with STEM education.</p>
+                        <p>I seek to develop complex systems that are of particular benefit to society, science and engineering. Here is some of what I’ve built in my free time.</p>
+                        <p> </p>
+                <div class="node-grid">
+                <div class="node-grid">
+                    <div class="node"><h3>AI-Driven Chemistry Game</h3><p>An adaptive game that uses a RAG system to generate context-specific chemistry questions from user documents. (Not yet publically Available) </p><div class="project-tags"><span>Python</span><span>RAG</span><span>LLM</span></div></div>
+                    <a href="https://chathuraratnayake997.github.io/mathmaze/" target="_blank"><div class="node"><h3>Mathmaze</h3><p>An interactive tool to learn mathematics with engaging games and exercises covering fundamental concepts. (ongoing) Click Here to try the tool. </p><div class="project-tags"><span>Interactive</span><span>Education</span><span>Mathematics</span><span>Web</span></div></div></a>
+                    <a href="https://chathuraratnayake997.github.io/Retention_Time_Prediction/" target="_blank"><div class="node"><h3>Chromatographic study to improve separation</h3><p>Predicting retention times with machine learning for peak annotation in metabolomics.</p><p><strong>Performance:</strong> R² = 0.633, MAE = 1.605 min, RMSE = 2.262 min</p><div class="project-tags"><span>Machine Learning</span><span>HPLC</span><span>Python</span><span>Data Science</span></div></div></a>
+                    <a href="https://chathuraratnayake997.github.io/SPEGuide/" target="_blank"><div class="node"><h3>Interactive Guide to SPE</h3><p>A simple web based guide with challanges to guide students with Solid Phase Extraction. Click Here to open Guide. </p><div class="project-tags"><span>Analytical Chemistry</span><span>Interactive</span><span>SPE</span><span>Education</span></div></div></a>
+                    <a href="https://chathuraratnayake997.github.io/HPLCSOP/" target="_blank"><div class="node"><h3>Interactive HPLC SOP</h3><p>An interactive standard operation procedure for HPLC analysis covering instrument setup, method development, troubleshooting, and best practices.</p><div class="project-tags"><span>Analytical Chemistry</span><span>Interactive</span><span>HPLC</span><span>SOP</span><span>Education</span></div></div></a>
+                    <a href="https://chathuraratnayake997.github.io/chathuraOS/" target="_blank"><div class="node"><h3>My old works</h3><p>A collection of my old photoshop works, digital drawings, and photos showcasing my creative digital art portfolio.</p><div class="project-tags"><span>Digital Art</span><span>Photoshop</span><span>Creative</span><span>Portfolio</span></div></div></a>
+                </div>
+            </section>
+            <section class="section" id="contact">
+                <h2 class="section-title">Connect</h2>
+                <div class="bio-text">
+                        <p>Thank you for visiting to my personal website. I have gained experience in a variety of scientific fields, coding languages, and technologies, all while striving to make a positive impact. Please don't hesitate to send me an email if you believe I can assist you with something interesting.</p>
+                    </div>
+                <p><a href="#" id="email-link" data-email="armcdilsh@gmail.com">Email</a> | <a href="https://linkedin.com/in/chat07" target="_blank">LinkedIn</a></p>
+            </section>
+        </main>
+    </div>
+    <script> /* Identical JS script from previous version */ const themeToggle=document.getElementById("theme-toggle"),body=document.body;themeToggle.addEventListener("click",(()=>{body.classList.toggle("light-mode"),updateTheme()}));function updateTheme(){const e=body.classList.contains("light-mode");localStorage.setItem("theme",e?"light":"dark"),themeToggle.innerHTML=e?"&#9728;":"&#9789;",themeToggle.title=e?"Switch to Dark Mode":"Switch to Light Mode"}document.addEventListener("DOMContentLoaded",(()=>{const e=localStorage.getItem("theme");"light"===e&&body.classList.add("light-mode"),updateTheme()}));const canvas=document.getElementById("particle-canvas"),ctx=canvas.getContext("2d");canvas.width=window.innerWidth,canvas.height=window.innerHeight;let particlesArray;class Particle{constructor(e,t,o,i,s){this.x=e,this.y=t,this.directionX=o,this.directionY=i,this.size=s}draw(){ctx.beginPath(),ctx.arc(this.x,this.y,this.size,0,2*Math.PI,!1),ctx.fillStyle=body.classList.contains("light-mode")?"rgba(0, 123, 255, 0.5)":"rgba(88, 166, 255, 0.5)",ctx.fill()}update(){this.x>canvas.width||this.x<0?this.directionX=-this.directionX:void 0,this.y>canvas.height||this.y<0?this.directionY=-this.directionY:void 0,this.x+=this.directionX,this.y+=this.directionY,this.draw()}}function init(){particlesArray=[];let e=(canvas.height*canvas.width)/9e3;for(let t=0;t<e;t++){let e=1+2*Math.random(),o=Math.random()*(innerWidth-4*e)+2*e,i=Math.random()*(innerHeight-4*e)+2*e,s=.4*Math.random()-.2,a=.4*Math.random()-.2;particlesArray.push(new Particle(o,i,s,a,e))}}function connect(){let e=1;for(let t=0;t<particlesArray.length;t++)for(let o=t;o<particlesArray.length;o++){let i=(particlesArray[t].x-particlesArray[o].x)*(particlesArray[t].x-particlesArray[o].x)+(particlesArray[t].y-particlesArray[o].y)*(particlesArray[t].y-particlesArray[o].y);i<canvas.width/7*(canvas.height/7)&&(e=1-i/2e4,ctx.strokeStyle=body.classList.contains("light-mode")?"rgba(0, 123, 255,"+e+")":"rgba(88, 166, 255,"+e+")",ctx.lineWidth=1,ctx.beginPath(),ctx.moveTo(particlesArray[t].x,particlesArray[t].y),ctx.lineTo(particlesArray[o].x,particlesArray[o].y),ctx.stroke())}}function animate(){requestAnimationFrame(animate),ctx.clearRect(0,0,innerWidth,innerHeight);for(let e=0;e<particlesArray.length;e++)particlesArray[e].update();connect()}window.addEventListener("resize",(function(){canvas.width=innerWidth,canvas.height=innerHeight,init()})),init(),animate();
+        
+        // Email link handling with clipboard fallback
+        document.getElementById('email-link').addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const email = this.getAttribute('data-email');
+            const originalText = this.textContent;
+            
+            // Show copying feedback
+            this.textContent = 'Copying...';
+            this.style.cursor = 'wait';
+            
+            // Copy email to clipboard
+            navigator.clipboard.writeText(email).then(() => {
+                // Success feedback
+                this.textContent = 'Email Copied!';
+                this.style.opacity = '0.7';
+                
+                // Try to open email client as fallback
+                setTimeout(() => {
+                    window.location.href = 'mailto:' + email;
+                }, 500);
+                
+                // Reset after 2 seconds
+                setTimeout(() => {
+                    this.textContent = originalText;
+                    this.style.opacity = '1';
+                    this.style.cursor = 'pointer';
+                }, 2000);
+                
+            }).catch(() => {
+                // If clipboard fails, show email to copy manually
+                this.textContent = email;
+                this.style.cursor = 'text';
+                
+                // Reset after 3 seconds
+                setTimeout(() => {
+                    this.textContent = originalText;
+                    this.style.cursor = 'pointer';
+                }, 3000);
+            });
+        });
+    </script>
+</body>
+</html>

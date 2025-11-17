@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publications | Chathura [Your Last Name]</title>
+    <style>
+        /* This CSS is identical to index.html to ensure consistent styling */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+        :root {
+            --bg: #0d1117; --text-primary: #c9d1d9; --text-secondary: #fff; --accent: #58a6ff; --border: #30363d; --wrapper-bg: rgba(13, 17, 23, 0.85);
+        }
+        body.light-mode {
+            --bg: #f0f2f5; --text-primary: #212529; --text-secondary: #000; --accent: #007bff; --border: #dee2e6; --wrapper-bg: rgba(255, 255, 255, 0.8);
+        }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Poppins', sans-serif; background-color: var(--bg); color: var(--text-primary); margin: 0; padding: 0; overflow-x: hidden; transition: background-color 0.3s, color 0.3s; }
+        #particle-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
+        .content-wrapper { position: relative; z-index: 1; max-width: 900px; margin: 4rem auto; padding: 2rem; background: var(--wrapper-bg); border: 1px solid var(--border); border-radius: 10px; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); transition: background-color 0.3s, border-color 0.3s; }
+        .main-nav { display: flex; justify-content: flex-end; align-items: center; gap: 1.5rem; margin-bottom: 2rem; }
+        .main-nav a { font-weight: 400; font-size: 1rem; color: var(--text-primary); transition: color 0.3s; text-decoration: none; }
+        .main-nav a:hover, .main-nav a.active { color: var(--accent); }
+        #theme-toggle { background: none; border: none; color: var(--text-primary); cursor: pointer; font-size: 1.5rem; padding: 0; line-height: 1; transition: transform 0.3s, color 0.3s; }
+        #theme-toggle:hover { color: var(--accent); transform: rotate(15deg); }
+        .section { margin-bottom: 3rem; }
+        .section-title { font-size: 1.8rem; color: var(--text-secondary); border-bottom: 1px solid var(--accent); padding-bottom: 0.5rem; margin-bottom: 1.5rem; transition: color 0.3s, border-color 0.3s; }
+        .publications-list h3 { font-size: 1.2rem; color: var(--text-secondary); margin-top: 2.5rem; margin-bottom: 1rem; font-weight: 600; }
+        .publications-list ol { list-style-type: decimal; padding-left: 1.5rem; }
+        .publications-list li { margin-bottom: 1.5rem; padding-left: 0.5rem; font-weight: 300; }
+        .publications-list li strong { color: var(--text-secondary); font-weight: 400; }
+        .publication-meta { display: block; font-size: 0.9rem; margin-top: 0.25rem; opacity: 0.8; }
+        a { color: var(--accent); text-decoration: none; font-weight: 600; }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <canvas id="particle-canvas"></canvas>
+    <div class="content-wrapper">
+        <nav class="main-nav">
+            <a href="index.html#bio">About</a>
+            <a href="index.html#projects">Projects</a>
+            <a href="publications.html" class="active">Publications</a>
+            <a href="index.html#contact">Connect</a>
+            <button id="theme-toggle" title="Toggle Theme">&#9789;</button>
+        </nav>
+        <main>
+            <section class="section" id="publications">
+                <h2 class="section-title">Output Layer // Publications</h2>
+                <div class="publications-list">
+                    <h3>Conference Papers</h3>
+                    <ol>
+                        <li>Ratnayake, A.R.M.C.D. (2025). <strong>Designing In-Built Mini-Games for Chatbots: Opportunity to Improve User Engagement in Customer Service and Education.</strong><span class="publication-meta"><em>24th International Federation for Information Processing (IFIP – ICEC 2025)</em>, Japan. <a href="https://doi.org/10.1007/978-3-032-02534-0_10" target="_blank">DOI</a></span></li>
+                    </ol>
+                    <h3>Abstracts & Presentations</h3>
+                    <ol>
+                        <li>Gunawardana, E. G. W., et al. (2023). <strong>Importance of study on biofilm characterization within drinking water distribution networks.</strong><span class="publication-meta"><em>14th International Conference on Sustainable Built Environment (ICSBE 2023)</em>, Kandy, Sri Lanka.</span></li>
+                        <li>Nauchali, H.G.V., et al. (2023). <strong>Comparative Study on the Influence of Mobile Phase pH on the Retention Time of MCPA, Captan, and Diuron in RP-HPLC Analysis.</strong><span class="publication-meta">Special session of the Kandy Conference, Kandy, Sri Lanka.</span></li>
+                        <li><strong>Ratnayake, C.</strong>, & Rodriguez, G. (2024). <strong>Nature Sip: Portable Pressure-Powered Hand Filter for Rural and Remote Areas.</strong><span class="publication-meta">Poster at <em>World Eco-Design Conference (WEDC)</em>, Vienna, Austria.</span></li>
+                    </ol>
+                    <h3>Work in Progress</h3>
+                    <ol>
+                        <li><strong>Ratnayake, A.R.M.C.D.</strong>; Jiang, H. (2025). <strong>Development of an AI-Powered Mini-Game for Enhanced Student Learning in Chemistry.</strong><span class="publication-meta">[To be submitted to <em>Journal of Chemical Education</em>].</span></li>
+                    </ol>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script> /* Identical JS script from previous version */ const themeToggle=document.getElementById("theme-toggle"),body=document.body;themeToggle.addEventListener("click",(()=>{body.classList.toggle("light-mode"),updateTheme()}));function updateTheme(){const e=body.classList.contains("light-mode");localStorage.setItem("theme",e?"light":"dark"),themeToggle.innerHTML=e?"&#9728;":"&#9789;",themeToggle.title=e?"Switch to Dark Mode":"Switch to Light Mode"}document.addEventListener("DOMContentLoaded",(()=>{const e=localStorage.getItem("theme");"light"===e&&body.classList.add("light-mode"),updateTheme()}));const canvas=document.getElementById("particle-canvas"),ctx=canvas.getContext("2d");canvas.width=window.innerWidth,canvas.height=window.innerHeight;let particlesArray;class Particle{constructor(e,t,o,i,s){this.x=e,this.y=t,this.directionX=o,this.directionY=i,this.size=s}draw(){ctx.beginPath(),ctx.arc(this.x,this.y,this.size,0,2*Math.PI,!1),ctx.fillStyle=body.classList.contains("light-mode")?"rgba(0, 123, 255, 0.5)":"rgba(88, 166, 255, 0.5)",ctx.fill()}update(){this.x>canvas.width||this.x<0?this.directionX=-this.directionX:void 0,this.y>canvas.height||this.y<0?this.directionY=-this.directionY:void 0,this.x+=this.directionX,this.y+=this.directionY,this.draw()}}function init(){particlesArray=[];let e=(canvas.height*canvas.width)/9e3;for(let t=0;t<e;t++){let e=1+2*Math.random(),o=Math.random()*(innerWidth-4*e)+2*e,i=Math.random()*(innerHeight-4*e)+2*e,s=.4*Math.random()-.2,a=.4*Math.random()-.2;particlesArray.push(new Particle(o,i,s,a,e))}}function connect(){let e=1;for(let t=0;t<particlesArray.length;t++)for(let o=t;o<particlesArray.length;o++){let i=(particlesArray[t].x-particlesArray[o].x)*(particlesArray[t].x-particlesArray[o].x)+(particlesArray[t].y-particlesArray[o].y)*(particlesArray[t].y-particlesArray[o].y);i<canvas.width/7*(canvas.height/7)&&(e=1-i/2e4,ctx.strokeStyle=body.classList.contains("light-mode")?"rgba(0, 123, 255,"+e+")":"rgba(88, 166, 255,"+e+")",ctx.lineWidth=1,ctx.beginPath(),ctx.moveTo(particlesArray[t].x,particlesArray[t].y),ctx.lineTo(particlesArray[o].x,particlesArray[o].y),ctx.stroke())}}function animate(){requestAnimationFrame(animate),ctx.clearRect(0,0,innerWidth,innerHeight);for(let e=0;e<particlesArray.length;e++)particlesArray[e].update();connect()}window.addEventListener("resize",(function(){canvas.width=innerWidth,canvas.height=innerHeight,init()})),init(),animate();</script>
+</body>
+</html>
