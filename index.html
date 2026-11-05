@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chathura Ratnayake</title>
+    <link rel="icon" type="image/png" href="assets/img/favicon-64.png">
+    <link rel="apple-touch-icon" href="assets/img/favicon-180.png">
+    <script>if(localStorage.getItem('theme')==='dark'){document.documentElement.setAttribute('data-theme','dark')}</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css?v=20261105">
+</head>
+<body>
+    <div class="dot-grid" aria-hidden="true"></div>
+    <div class="content-wrapper">
+        <nav class="main-nav">
+            <a href="#bio" class="active">About</a>
+            <a href="pages/projects.html">Projects</a>
+            <a href="experience.html">Experience</a>
+            <a href="publications.html">Publications</a>
+            <a href="outreach.html">Outreach</a>
+            <a href="#contact">Connect</a>
+            <button id="theme-toggle" class="theme-toggle" aria-label="Switch to dark mode">
+                <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg>
+            <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg>
+            </button>
+        </nav>
+        <header class="title-header">
+            <h1>Chathura Ratnayake</h1>
+            <p>M.Eng Student @ Zhejiang University</p>
+        </header>
+        <main>
+            <section class="section" id="bio">
+                <h2 class="section-title">About</h2>
+                <div class="bio-container">
+                    <div class="bio-aside">
+                        <div class="bio-image">
+                            <img src="assets/img/pp.jpg" alt="Professional headshot of Chathura" width="432" height="432" decoding="async">
+                        </div>
+                        <a class="bio-cv" href="assets/cv/cv.pdf" target="_blank" rel="noopener">View CV</a>
+                    </div>
+                    <div class="bio-text">
+                        <p>I was born and raised in Sri Lanka, where I spent much of my time outdoors, whether playing baseball at school or simply exploring and enjoying nature. Looking back, I’m glad I had those experiences because I believe they helped shape me into a creative person who is always open to new challenges.</p>
+                        <p>I have a bachelor’s degree in Chemical Engineering and am currently a final-year master’s student in Industrial Design Engineering. I’m passionate about exploring chemical engineering and related fields to solve problems at the intersection of chemical engineering, the environment, and health.</p>
+                        <p>Beyond engineering, I’m interested in technology and design. I see technology as a way to stay up to date with the world, while design helps me stay creative and look at things from different, sometimes unconventional, perspectives. I enjoy building new things, drawing, and watching movies. I also love picking up new skills and gradually mastering them in my free time. When I’m not doing any of those things, you’ll probably find me reading about interesting discoveries in other fields, such as health and technology, or getting lost in science fiction, where I often find fascinating ideas.</p>
+                    </div>
+                </div>
+            </section>
+            <section class="section" id="projects">
+                <h2 class="section-title">Projects</h2>
+                <div class="node-grid" id="home-projects"></div>
+                <a class="projects-all" href="pages/projects.html">View all projects</a>
+            </section>
+            <section class="section" id="contact">
+                <h2 class="section-title">Connect</h2>
+                <div class="bio-text">
+                        <p>Don’t be a stranger! I’m always happy to meet new people, exchange ideas, and explore exciting opportunities. Reach out through social media, send me an email, or simply say hello through the chat bubble. Looking forward to connecting with you!</p>
+                    </div>
+                <div class="contact-social">
+                    <a href="https://linkedin.com/in/chat07" target="_blank" rel="noopener" aria-label="LinkedIn">
+                        <img src="assets/icons/linkedin.svg" alt="" decoding="async">
+                    </a>
+                    <a href="https://github.com/chathuraratnayake997" target="_blank" rel="noopener" aria-label="GitHub">
+                        <img class="social-mono" src="assets/icons/github.svg" alt="" decoding="async">
+                    </a>
+                    <a href="mailto:armcdilsh@gmail.com" aria-label="Email">
+                        <img src="assets/icons/gmail.svg" alt="" decoding="async">
+                    </a>
+                </div>
+                <div class="chat-card" id="contact-chat">
+                    <div class="chat-log" id="chat-log" role="log" aria-live="polite" aria-label="Message conversation"></div>
+                    <form class="chat-form" id="chat-form" autocomplete="off" onsubmit="return false">
+                        <span class="chat-plus" aria-hidden="true">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14"></path><path d="M5 12h14"></path></svg>
+                        </span>
+                        <div class="chat-field">
+                            <label class="sr-only" for="chat-input">Message</label>
+                            <textarea class="chat-input" id="chat-input" rows="1" placeholder="Message" maxlength="800"></textarea>
+                            <button class="chat-send" type="submit" aria-label="Send message">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5"></path><path d="m5 12 7-7 7 7"></path></svg>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <div class="cv-modal" id="cv-modal" role="dialog" aria-modal="true" aria-labelledby="cv-modal-title" hidden>
+        <div class="cv-dialog">
+            <header class="cv-bar">
+                <span class="cv-modal-label" id="cv-modal-title">Curriculum Vitae</span>
+                <div class="cv-actions">
+                    <button type="button" class="cv-close" aria-label="Close CV viewer">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>
+                    </button>
+                </div>
+            </header>
+            <div class="cv-scroll" id="cv-scroll">
+                <div class="cv-pages" id="cv-pages"></div>
+                <p class="cv-status" id="cv-status" role="status">Loading CV…</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Navigation" hidden>
+        <button class="mobile-menu-close" type="button" aria-label="Close menu">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>
+        </button>
+        <span class="mobile-menu-label">Menu</span>
+        <nav class="mobile-menu-links" id="mobile-menu-links" aria-label="Mobile navigation"></nav>
+        <button class="theme-toggle mobile-theme-toggle" type="button" aria-label="Switch to dark mode">
+            <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+            <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg>
+        </button>
+    </div>
+
+    <script src="js/script.js?v=20261105" defer></script>
+    <script src="js/chat.js?v=20261105" defer></script>
+    <script src="js/cv.js?v=20261105" defer></script>
+    <script src="js/projects.js?v=20261105" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js" defer></script>
+</body>
+</html>

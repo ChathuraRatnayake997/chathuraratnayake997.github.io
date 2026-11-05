@@ -1,0 +1,79 @@
+[
+  {
+    "title": "3D Molecule Studio",
+    "intro": "An interactive 3d molecule viewer and editor in web browser. Open Accurate 3D molecular structures From Pubchem, edit them, animate them and export them in various formats. ",
+    "image": "assets/Projects/3d_molecule/1.gif",
+    "link": "https://chathuraratnayake997.github.io/3D-molecule-studio/",
+    "featured": true
+  },
+  {
+    "title": "Academic Visuals Initiative",
+    "intro": "Create an professional website specifically designed for Faculty members, Researchers, and Graduate students to showcase their work and research for free without coding knowledge. ",
+    "image": "assets/Projects/avi/1.gif",
+    "link": "https://academicvisualsinitiative.org/",
+    "featured": true
+  },
+  {
+    "title": "Interactive HPLC SOP",
+    "intro": "An interactive standard operation procedure for HPLC analysis covering instrument setup, method development, troubleshooting, and best practices. Click here to open.",
+    "image": "assets/Projects/hplc_sop/1.gif",
+    "link": "https://chathuraratnayake997.github.io/HPLCSOP/",
+    "featured": true
+  },
+  {
+    "title": "Explore New worlds in 3D",
+    "intro": "I think everybody wants to join NASA, I don't know why. But Trust me, I still want to join NASA. However I do understant that it's not that realistic. So I created this simple 3D world generator to explore new worlds in browser. ",
+    "image": "assets/Projects/3d_world/1.gif",
+    "link": "https://chathuraratnayake997.github.io/your3dworld/#seed=ORION-7",
+    "featured": false
+  },
+  {
+    "title": "Some of My Drawings",
+    "intro": "I can draw using both traditional and digital methods. However, Recently I have been focusing on digital drawing using Procreate and Photoshop. ",
+    "image": "assets/Projects/my_drawings/cover/1.gif",
+    "link": "pages/drawings.html",
+    "featured": false
+  },
+  {
+    "title": "My Movies",
+    "intro": "I wanted to Save my favourite movies and TV shows in a simple way. So I created this. It is also driven by a simple JSON file. You can also fork it and add your own movies and TV shows to it. however I couldn't update because I got busy.",
+    "image": "assets/Projects/movies/1.gif",
+    "link": "https://chathuraratnayake997.github.io/mymovies/",
+    "featured": false
+  },
+  {
+    "title": "Web Based Mini Piano",
+    "intro": "Play online, Record, and Share your music with your loved onces. Don't forgret to turn on sustain when you are playing practice songs. Give it a try and let me know how can I improve it!",
+    "image": "assets/Projects/web_piano/1.gif",
+    "link": "https://chathuraratnayake997.github.io/piano/",
+    "featured": false
+  },
+  {
+    "title": "Jig-Saw Puzzle in Browser",
+    "intro": "Upload your own image, break it into 12 - 124 pieces, randomize it an fix it in directly in your browser. I am planing to make the puzzle pieces downloadable so you can print them and play in physical world.",
+    "image": "assets/Projects/puzzle/1.gif",
+    "link": "https://chathuraratnayake997.github.io/puzzle/",
+    "featured": true
+  },
+  {
+    "title": "Simple Web Based Map Editor",
+    "intro": "Simple web based map editor for Sri Lanka. Provinces, Districts, and Divisional Secretariat divisions are included. You can color, add data, add pins and  download it as an image or SVG file.",
+    "image": "assets/Projects/map/1.gif",
+    "link": "https://chathuraratnayake997.github.io/Sri-Lankan-map-editor/",
+    "featured": true
+  },
+  {
+    "title": "A book but in a different way",
+    "intro": "I like to read physics books. However, recently all I did was reading books online. and I got bored, So I created this simple book reader to read books in a different way. This is also json driven, fork it and try yourself.",
+    "image": "assets/Projects/reader/1.gif",
+    "link": "https://chathuraratnayake997.github.io/reader/",
+    "featured": false
+  },
+  {
+    "title": "Global Plastic Waste Trade",
+    "intro": "I think you already know about plastics, how about global plastic waste trade? It is significantly affecting the environment and human health. This is a simple visualization of global plastic waste trade. I am planning to add more features to it.",
+    "image": "assets/Projects/plastic/1.gif",
+    "link": "https://chathuraratnayake997.github.io/global-plastic-waste/",
+    "featured": true
+  }
+]
