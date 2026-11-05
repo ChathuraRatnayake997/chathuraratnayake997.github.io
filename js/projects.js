@@ -26,11 +26,12 @@
         const url = typeof project.link === 'string' ? project.link.trim() : '';
 
         if (url) {
-            link.href = resolve(url);
-
             if (externalLink(url)) {
+                link.href = url;
                 link.target = '_blank';
                 link.rel = 'noopener';
+            } else {
+                link.href = resolve(url);
             }
         } else {
             link.setAttribute('aria-disabled', 'true');
